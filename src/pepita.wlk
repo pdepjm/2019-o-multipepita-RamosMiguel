@@ -12,6 +12,51 @@ object pepita {
 	method come(comida) {
 		energia = energia + comida.energiaQueOtorga()
 	}
+	
+	method estaEntre(numero,topeInferior,topeSuperor){
+		return numero.between(topeInferior,topeSuperor)
+	}
+	
+	method agregarEnergia(valor){
+		energia+=valor
+	}
+	method esMultiploDe(numero,multiplo){
+		return numero % multiplo == 0
+	}
+	
+	
+	method estaFeliz(){
+		return self.estaEntre(energia,500,1000)
+	}
+	
+	method vueloBase(){
+		return energia/5
+	}
+	
+	method plusPorEnergia(){
+		if( self.estaEntre(energia,300,400)){
+			return 10
+		}else{
+			return 0
+		}
+	}
+	
+	method plusPorMultiplo(){
+		if(self.esMultiploDe(energia,20)){
+			return 15
+		}else{
+			return 0
+		}
+	}
+	
+	method cuantoQuiereVolar(){
+		return self.vueloBase()+self.plusPorEnergia()+self.plusPorMultiplo()
+	}
+	
+	
+	
+	
+	
 }
 
 object alpiste {

@@ -33,29 +33,32 @@ object pepita {
 		return energia/5
 	}
 	
-	method plusPorEnergia(){
-		if( self.estaEntre(energia,300,400)){
-			return 10
-		}else{
-			return 0
-		}
-	}
-	
-	method plusPorMultiplo(){
-		if(self.esMultiploDe(energia,20)){
-			return 15
-		}else{
-			return 0
-		}
-	}
-	
+	 
 	method cuantoQuiereVolar(){
-		return self.vueloBase()+self.plusPorEnergia()+self.plusPorMultiplo()
+		var total=self.vueloBase()
+		if( self.estaEntre(energia,300,400)){
+			total+= 10
+		}
+		if(self.esMultiploDe(energia,20)){
+			total+= 15
+		}
+			return total
+		}
+	
+	method salirAComer(){
+		self.vola(5)
+		self.come(alpiste)
+		self.vola(5)
 	}
 	
-	
-	
-	
+	method haceLoQueQuieras(){
+		if(self.estaCansada()){
+			self.come(alpiste)
+		}
+		if(self.estaFeliz()){
+			self.vola(8)
+		}
+	}
 	
 }
 
@@ -69,6 +72,65 @@ object alpiste {
 	method gramos(nuevosGramos) {
 		gramos = nuevosGramos
 	}	
+}
+
+object canelones{
+	var energia=20
+	var salsa=false
+	var queso= false
+	
+	method agregarSalsa(){
+		salsa=true
+	}
+	
+	method quitarSalsa(){
+		salsa=false
+	}
+	
+	method agregarQueso(){
+		queso=true
+	}
+	
+	method quitarQueso(){
+		queso=false
+	}
+	
+	method calcularEnergia(){
+		var energiaTotal=energia
+		if(salsa){
+			energiaTotal+=5
+		}
+		if(queso){
+			energiaTotal+=7
+		}
+		
+		return energiaTotal
+	}
+	
+	method energiaQueOtorga(){
+		return self.calcularEnergia()
+	}
+	
+}
+
+object mijo {
+
+	var estaMojado=false
+	method energiaQueOtorga(){
+		if(estaMojado){
+			return 15
+		}else{
+			return 20
+		}
+	}
+	
+	method mojarse(){
+		estaMojado=true
+	}
+	
+	method secarse(){
+		estaMojado=false
+	}
 }
 
 object manzana {

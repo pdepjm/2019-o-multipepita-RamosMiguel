@@ -1,3 +1,46 @@
+object pepo{
+	var energia=100
+	
+	method vola(kms) {
+		energia -= 1 + (kms/2)
+	}
+
+	method come(comida) {
+		energia = energia + (comida.energiaQueOtorga()/2)
+	}
+	
+	method haceLoQueQuieras(){
+		self.vola(1)
+	}
+	
+}
+
+object pipa{
+	
+	var kmsRecorridos=0
+	var cantComidas=0
+	
+	method vola(kms) {
+		kmsRecorridos += kms
+	}
+
+	method come(comida) {
+		cantComidas++
+	}
+	
+	method haceLoQueQuieras(){
+		
+	}
+	
+	method kmsRecorridos(){
+		return kmsRecorridos
+	}
+	
+	method cantComidas(){
+		return cantComidas
+	}
+}
+
 object pepita {
 	var energia = 100
 
@@ -63,12 +106,16 @@ object pepita {
 }
 
 object roque{
-	
-	 method entrenar(pajaro){
-	 	pajaro.volar(10)
-	 	pajaro.come(alpiste)
-	 	pajaro.volar(5)
-	 	pajaro.haceLoQueQuieras()
+	var pequenioSaltamontes
+	 method tuPupiloEs(aprendiz){
+	 	pequenioSaltamontes=aprendiz
+	 	
+	 }
+	 method entrenar(){
+	 	pequenioSaltamontes.vola(10)
+	 	pequenioSaltamontes.come(alpiste)
+	 	pequenioSaltamontes.vola(5)
+	 	pequenioSaltamontes.haceLoQueQuieras()
 	 }
 }
 object alpiste {

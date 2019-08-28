@@ -62,6 +62,15 @@ object pepita {
 	
 }
 
+object roque{
+	
+	 method entrenar(pajaro){
+	 	pajaro.volar(10)
+	 	pajaro.come(alpiste)
+	 	pajaro.volar(5)
+	 	pajaro.haceLoQueQuieras()
+	 }
+}
 object alpiste {
 	var gramos = 10
 	
